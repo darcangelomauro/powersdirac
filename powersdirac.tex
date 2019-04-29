@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath,amscd}
+\usepackage[symbol]{footmisc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[english]{babel}
+\linespread{1.25}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\T}{\text{\scriptsize T}}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+
+\begin{document}
+
+\section{Calculating powers of a Dirac operator in terms of H and L matrices}
+\subsection{Statement of the problem}
+The fuzzy space action considered here is:
+\begin{equation}
+S[D] = g_2 \Tr D^2 + \Tr D^4
+\end{equation} 
+where $g_2 \in \mathbb{R}$ and $D$ is of the form:
+\begin{equation}
+D = \sum_i \omega_i \otimes (M_i \otimes I + \epsilon_i I \otimes M_i^T)
+\end{equation}
+for Hermitian $\omega_i$ and $M_i$, and $\epsilon_i = \pm 1$. \newline
+In the following, formulas for $\Tr D^p$ are developed for $p=2$ and $p=4$.
+\subsection{Useful relations}
+\subsubsection{$\omega$ matrices}
+\begin{enumerate}
+\item
+\begin{equation}
+\omega_i^2 = I
+\end{equation}
+that is, all the $\omega$ matrices square to the identity.
+\item 
+\begin{equation}\label{eq:vanomega}
+\Tr(\omega_{\sigma(i_1)} \omega_{\sigma(i_2)} \omega_{\sigma(j)} \omega_{\sigma(k)}) \propto \Tr(\omega_j \omega_k) = 0 \qquad \text{if} \ \ i_1 = i_2 \ \text{and} \ j \neq k
+\end{equation}
+for any permutation $\sigma$ acting on $\{i_1, i_2, j, k\}$. In other words, if two indices are the same and the other two are different from each other, the trace on the $\omega$ matrices vanishes.
+\end{enumerate}
+\subsubsection{$\epsilon$ factors}
+\begin{equation}\label{eq:eps}
+(\epsilon_{i_1} \cdots \epsilon_{i_r}) + (\epsilon_{i_{r+1}} \cdots \epsilon_{i_n}) = (\epsilon_{i_1} \cdots \epsilon_{i_r}) [1 + (\epsilon_{i_1} \cdots \epsilon_{i_n})]
+\end{equation}
+following from $\epsilon_i^{-1} = \epsilon_i$ for all $i$.
+\subsubsection{$M$ matrices}\label{sec:mat}
+$\Tr (M_i M_j)$ is real regardless of $i$ and $j$. \newline
+$\Tr(M_i M_j M_k)$ is real if at least two indices are the same. \newline
+$\Tr(M_i M_j M_k M_l)$ is real if at least three indices are the same or the indices split in two equal pairs. 
+\subsection{The case $p=2$}
+When $p = 2$ the $M_i$ matrices are decoupled:
+\begin{align}
+\Tr D^2 &= \sum_i \Tr \omega_i^2 (2 n \Tr M_i^2 + 2 \epsilon_i (\Tr M_i)^2) \notag \\
+&= \sum_i C (2 n \Tr M_i^2 + 2 \epsilon_i (\Tr M_i)^2)
+\end{align} 
+where $C$ is the dimension of the $\omega$ matrices.
+
+\subsection{The case $p=4$}
+First expand $\Tr D^4$:
+\begin{align}\label{eq:trd4}
+\Tr D^4 &= \sum_{i_1, i_2, i_3, i_4} \Tr (\omega_{i_1} \omega_{i_2} \omega_{i_3} \omega_{i_4}) \cdot \notag \\
+\Big( \ &n [1+\epsilon \ *] \Tr (M_{i_1} M_{i_2} M_{i_3} M_{i_4})  \ \  + \notag \\
+&\epsilon_{i_1} \Tr M_{i_1} [1 + \epsilon \ *] \Tr ( M_{i_2} M_{i_3} M_{i_4})  \ \  + \notag \\
+&\epsilon_{i_2} \Tr M_{i_2} [1  + \epsilon \ *] \Tr (M_{i_1} M_{i_3} M_{i_4}) \ \  + \notag \\
+&\epsilon_{i_3} \Tr M_{i_3} [1 + \epsilon \ *] \Tr (M_{i_1} M_{i_2} M_{i_4})  \ \  + \notag \\
+&\epsilon_{i_4} \Tr M_{i_4} [1 + \epsilon \ *] \Tr (M_{i_1} M_{i_2} M_{i_3})  \ \  + \notag \\
+&\epsilon_{i_1} \epsilon_{i_2} [1 + \epsilon] \Tr (M_{i_1} M_{i_2} ) \Tr (M_{i_3} M_{i_4})   \ \  + \notag \\
+&\epsilon_{i_1} \epsilon_{i_3} [1 + \epsilon] \Tr (M_{i_1} M_{i_3}) \Tr (M_{i_2} M_{i_4})   \ \  + \notag \\
+&\epsilon_{i_1} \epsilon_{i_4} [1 + \epsilon] \Tr (M_{i_1} M_{i_4}) \Tr (M_{i_2} M_{i_3})   \ \Big)
+\end{align}
+where $*$ denotes complex conjugation of everything that appears on the right, $\epsilon$ is defined as the product $\epsilon \equiv \epsilon_{i_1}\epsilon_{i_2}\epsilon_{i_3}\epsilon_{i_4}$. Since $D$ is Hermitian, the expression must be real. It is not immediate to see that this is the case because of the $\epsilon = \pm 1$ factor inside the square brackets.\newline
+To write an expression which is manifestly real, first split the sum based on how many indices are the same. Schematically:
+\begin{align}
+\Tr D^4 = &(\text{all indices different}) \ \ + \notag \\
+&(\text{exactly two indices are the same}) \ \ + \notag \\
+&(\text{two distinct pairs of indices are the same}) \ \ + \notag \\
+&(\text{exactly three indices are the same}) \ \ + \notag \\
+&(\text{all indices are the same}).
+\end{align}
+For clarity, an example for each of the five different situations can be $(1, 2, 3, 4)$, $(1, 2, 1, 3)$, $(1, 1, 2, 2)$, $(1, 3, 3, 3)$, $(2, 2, 2, 2)$. \newline
+The first simplification comes from Eq.(\ref{eq:vanomega}): if exactly two or three indices are the same, the term vanishes because of the trace over the $\omega$ matrices. What remains is then:
+\begin{align}\label{eq:trd4splitsch}
+\Tr D^4 = &(\text{all indices different}) \ \ + \notag \\
+&(\text{all indices are the same}) \ \ + \notag \\
+&(\text{two distinct pairs of indices are the same}).
+\end{align}
+By denoting $A(i_1, i_2, i_3, i_4)$ the generic term in the sum, Eq.(\ref{eq:trd4splitsch}) is:
+\begin{align}\label{eq:trd4split}
+\Tr D^4 = &\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) + \sum_{i} A(i,i,i,i) \ \ + \notag \\
+&\sum_{i_1 \neq i_2} \Big[ A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_2, i_1)  + A(i_1, i_2, i_1, i_2) \Big] \notag \\
+= &\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) + \sum_{i} A(i,i,i,i) \ \ + \notag \\
+&\sum_{i_1 \neq i_2} \Big[ 2A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_1, i_2) \Big]
+\end{align}
+the second equality coming from the fact that $A$ is invariant under cyclic permutation of its indices (it is possible to check this statement from the explicit form given in Eq.(\ref{eq:trd4})). \newline
+It is easy to check that the $A$ terms in which at least two indices are the same are real. The same is not true for $A(i_1, i_2, i_3, i_4)$ with all the indices different from each other, bacause in this case reality holds only when the sum is carried over. One way to see this is to notice that exchanging the indices $i_1 \leftrightarrow i_3$ yields the complex conjugate of $A$:
+\begin{equation}
+A(i_3, i_2, i_1, i_4) = A(i_1, i_2, i_3, i_4)^*
+\end{equation}
+Exploiting the symmetries of $A$ allows to write an expression that makes reality explicit and minimizes the computations. The claim is that the following equation holds:
+\begin{align}\label{eq:group}
+\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) &= \notag \\
+ \sum_{i_1 < i_2 < i_3 < i_4} &8 \Real \Big( A(i_1, i_2, i_3, i_4) + A(i_1, i_2, i_4, i_3) + A(i_1, i_3, i_2, i_4) \Big)
+\end{align}
+and it comes from a group-theoretical argument that can be extended to higher powers of $D$. First consider the symmetric group $S_4$ acting on the set of indices $\{i_1, i_2, i_3, i_4\}$. The subgroup of $S_4$ corresponding to the symmetries of $A$ is $D_8 = \langle (1, 2, 3, 4), (1, 3) \rangle$, i.e. 4 cyclic permutations (that leave $A$ invariant) and 4 anti-cyclic permutations (that give the complex conjugate of $A$). The idea is to quotient out the action of $D_8$ by introducing the prefactor $4[1+*]$ (i.e. $8 \Real)$ and constraining the sum to $i_1 < i_2 < i_3 < i_4$. The terms left out by this procedure are the terms obtained by acting on $\{i_1, i_2, i_3, i_4\}$ with a representative from each (left or right) coset in $S_4/D_8$. The representatives chosen in Eq.(\ref{eq:group}) are $(), (3,4)$ and $(2,3)$. 
+
+
+
+
+
+
+\end{document}
