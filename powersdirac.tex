@@ -99,9 +99,11 @@ By denoting $A(i_1, i_2, i_3, i_4)$ the generic term in the sum, Eq.(\ref{eq:trd
 \Tr D^4 = &\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) + \sum_{i} A(i,i,i,i) \ \ + \notag \\
 &\sum_{i_1 \neq i_2} \Big[ A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_2, i_1)  + A(i_1, i_2, i_1, i_2) \Big] \notag \\
 = &\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) + \sum_{i} A(i,i,i,i) \ \ + \notag \\
-&\sum_{i_1 \neq i_2} \Big[ 2A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_1, i_2) \Big]
+&\sum_{i_1 \neq i_2} \Big[ 2A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_1, i_2) \Big] \notag \\
+= &\sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) + \sum_{i} A(i,i,i,i) \ \ + \notag \\
+2&\sum_{i_1 < i_2} \Big[ 2A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_1, i_2) \Big]
 \end{align}
-the second equality coming from the fact that $A$ is invariant under cyclic permutation of its indices (it is possible to check this statement from the explicit form given in Eq.(\ref{eq:trd4})). \newline
+the second and third equalities come from the fact that $A$ is invariant under cyclic permutation of its indices (it is possible to check this statement from the explicit form given in Eq.(\ref{eq:trd4})). \newline
 It is easy to check that the $A$ terms in which at least two indices are the same are real. The same is not true for $A(i_1, i_2, i_3, i_4)$ with all the indices different from each other, bacause in this case reality holds only when the sum is carried over. One way to see this is to notice that exchanging the indices $i_1 \leftrightarrow i_3$ yields the complex conjugate of $A$:
 \begin{equation}
 A(i_3, i_2, i_1, i_4) = A(i_1, i_2, i_3, i_4)^*
@@ -109,12 +111,16 @@ A(i_3, i_2, i_1, i_4) = A(i_1, i_2, i_3, i_4)^*
 Exploiting the symmetries of $A$ allows to write an expression that makes reality explicit and minimizes the computations. The claim is that the following equation holds:
 \begin{align}\label{eq:group}
 \sum_{i_j \neq i_k} A(i_1, i_2, i_3, i_4) &= \notag \\
- \sum_{i_1 < i_2 < i_3 < i_4} &8 \Real \Big( A(i_1, i_2, i_3, i_4) + A(i_1, i_2, i_4, i_3) + A(i_1, i_3, i_2, i_4) \Big)
+ \sum_{i_1 < i_2 < i_3 < i_4} &8 \Real \Big[ A(i_1, i_2, i_3, i_4) + A(i_1, i_2, i_4, i_3) + A(i_1, i_3, i_2, i_4) \Big]
 \end{align}
-and it comes from a group-theoretical argument that can be extended to higher powers of $D$. First consider the symmetric group $S_4$ acting on the set of indices $\{i_1, i_2, i_3, i_4\}$. The subgroup of $S_4$ corresponding to the symmetries of $A$ is $D_8 = \langle (1, 2, 3, 4), (1, 3) \rangle$, i.e. 4 cyclic permutations (that leave $A$ invariant) and 4 anti-cyclic permutations (that give the complex conjugate of $A$). The idea is to quotient out the action of $D_8$ by introducing the prefactor $4[1+*]$ (i.e. $8 \Real)$ and constraining the sum to $i_1 < i_2 < i_3 < i_4$. The terms left out by this procedure are the terms obtained by acting on $\{i_1, i_2, i_3, i_4\}$ with a representative from each (left or right) coset in $S_4/D_8$. The representatives chosen in Eq.(\ref{eq:group}) are $(), (3,4)$ and $(2,3)$. 
-
-
-
+and it comes from a group-theoretical argument that can be extended to higher powers of $D$. First consider the symmetric group $S_4$ acting on the set of indices $\{i_1, i_2, i_3, i_4\}$. The subgroup of $S_4$ corresponding to the symmetries of $A$ is $D_8 = \langle (1, 2, 3, 4), (1, 3) \rangle$, i.e. 4 cyclic permutations (that leave $A$ invariant) and 4 anti-cyclic permutations (that give the complex conjugate of $A$). The idea is to quotient out the action of $D_8$ by introducing the prefactor $4[1+*]$ (i.e. $8 \Real)$ and constraining the sum to $i_1 < i_2 < i_3 < i_4$. The terms left out by this procedure are the terms obtained by acting on $\{i_1, i_2, i_3, i_4\}$ with a representative from each (left or right) coset in $S_4/D_8$. The representatives chosen in Eq.(\ref{eq:group}) are $(), (3,4)$ and $(2,3)$. This completes the optimization of the term with four distinct indices. \newline
+The final formula for $\Tr D^4$ reads:
+\begin{align}\label{eq:trd4final}
+\Tr D^4 &= \notag \\
+&\sum_{i_1 < i_2 < i_3 < i_4} 8 \Real \Big[ A(i_1, i_2, i_3, i_4) + A(i_1, i_2, i_4, i_3) + A(i_1, i_3, i_2, i_4) \Big] \ \ + \notag \\
+&\phantom{a}2\sum_{i_1 < i_2} \Big[ 2A(i_1, i_1, i_2, i_2) + A(i_1, i_2, i_1, i_2) \Big] \ \ + \notag \\
+&\phantom{aa}\sum_{i} A(i,i,i,i)
+\end{align}
 
 
 
